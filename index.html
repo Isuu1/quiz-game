@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Quiz Game</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/65aa05fb15.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <h3 class="player-highscore"></h3>
+        <h1>👩‍🏫QuizAcademy👨‍🏫</h1>
+      </header>
+      <main class="quiz-main">
+        <h3 class="question-tracker"></h3>
+        <h2 class="player-score"></h2>
+        <div class="page hide pass">
+          <div
+            style="
+              display: grid;
+              grid-template-rows: 1fr 4rem;
+              height: 100%;
+            "
+          >
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+              "
+            >
+              <h1>✅ Correct ✅</h1>
+              <p>
+                Congratulations!You've successfully answered the
+                question.
+              </p>
+            </div>
+
+            <button type="submit" class="button next-button-pass">
+              Next Question <i class="fa-solid fa-angles-right"></i>
+            </button>
+          </div>
+        </div>
+        <div class="page hide fail">
+          <div
+            style="
+              display: grid;
+              grid-template-rows: 1fr 4rem;
+              flex-direction: column;
+              height: 100%;
+            "
+          >
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+              "
+            >
+              <h1>❌ Incorrect ❌</h1>
+              <p class="fail-current-question"></p>
+              <p class="fail-correct-answer"></p>
+            </div>
+            <button type="submit" class="button next-button-fail">
+              Next Question
+            </button>
+          </div>
+        </div>
+        <div class="page hide game-over">
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              height: 100%;
+            "
+          >
+            <h2>Game over!</h2>
+            <button class="button play-again-button">
+              Play again <i class="fa-solid fa-rotate-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <form class="quiz-form show">
+          <fieldset class="quiz-questions">
+            <legend class="question"></legend>
+            <div class="answers-container"></div>
+          </fieldset>
+          <button type="submit" class="button submit-button">
+            Submit Answer <i class="fa-solid fa-paper-plane"></i>
+          </button>
+        </form>
+      </main>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>

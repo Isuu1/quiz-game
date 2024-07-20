@@ -1,0 +1,165 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #291446;
+  font-size: 10px;
+}
+
+header {
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+h1 {
+  font-size: 1.5rem;
+}
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.page {
+  height: 90%;
+  padding: 1rem;
+  line-height: 2rem;
+}
+
+.page h1 {
+  margin-bottom: 1rem;
+}
+
+.quiz-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.wrapper {
+  box-sizing: border-box;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 100px 1fr;
+  color: #fff;
+  font-size: 1.2rem;
+  padding: 1rem;
+}
+
+.quiz-form {
+  height: 90%;
+  display: grid;
+  grid-template-rows: 1fr 4rem;
+}
+
+.fail-correct-answer {
+  /* background: #1dcc17; */
+  color: #4ce703;
+  padding: 1rem;
+  border-radius: 1rem;
+  width: 50%;
+  margin: 1rem auto;
+}
+
+.quiz-questions {
+  border: 0;
+  line-height: 1rem;
+}
+
+.question-tracker {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.quiz-questions legend {
+  font-size: 1.45rem;
+  margin-bottom: 3rem;
+}
+
+.quiz-questions label {
+  cursor: pointer;
+  background: #53357a;
+  display: block;
+  padding: 1.7rem 1rem;
+  border-radius: 0.6rem;
+  font-size: 1.35rem;
+  margin-left: 0.5rem;
+  margin-bottom: 1rem;
+  transition: all 0.3s;
+  line-height: 2rem;
+}
+
+.quiz-questions label:hover {
+  box-shadow: 0 0 20px 1px #522d0c;
+  background: #be5b0a;
+}
+
+.quiz-questions input {
+  margin-right: 1.1rem;
+}
+
+.answers-container {
+  height: auto;
+}
+
+.button {
+  background: #be5b0a;
+  color: #ffffff;
+  border: 0;
+  border-radius: 0.6rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.button:hover {
+  cursor: pointer;
+  background: #974502;
+}
+
+.pass {
+  text-align: center;
+}
+
+.fail {
+  text-align: center;
+}
+
+.question {
+  line-height: 2rem;
+}
+
+.game-over {
+}
+.player-score {
+  text-align: center;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  background: #ffffff46;
+  color: #291446;
+}
+
+.play-again-button {
+  width: 50%;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+/* .resultScreen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+} */
