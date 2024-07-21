@@ -9,11 +9,6 @@ const failScreen = document.querySelector(".fail");
 const questionTracker = document.querySelector(".question-tracker");
 const playerScoreContainer = document.querySelector(".player-score");
 const playerHighScore = document.querySelector(".player-highscore");
-
-//Buttons
-const nextButtonPass = document.querySelector(".next-button-pass");
-const nextButtonFail = document.querySelector(".next-button-fail");
-const playAgainButton = document.querySelector(".play-again-button");
 //Fail screen question node
 const failScreenQuestion = document.querySelector(
   ".fail-current-question"
@@ -22,6 +17,11 @@ const failScreenQuestion = document.querySelector(
 const failScreenAnswer = document.querySelector(
   ".fail-correct-answer"
 );
+
+//Buttons
+const nextButtonPass = document.querySelector(".next-button-pass");
+const nextButtonFail = document.querySelector(".next-button-fail");
+const playAgainButton = document.querySelector(".play-again-button");
 
 const gameOverContainer = document.querySelector(".game-over");
 
@@ -116,6 +116,11 @@ function shuffleArray(allAnswers) {
   }
 }
 
+function updatePlayerScore() {
+  playerScore++;
+  playerScoreContainer.innerHTML = "Correct answers: " + playerScore;
+}
+
 function handleSubmit(event) {
   event.preventDefault();
   const obj = data.results[questionIndex];
@@ -123,7 +128,7 @@ function handleSubmit(event) {
     'input[name="answer"]:checked'
   );
   if (selectedAnswer.value === obj.correct_answer) {
-    playerScore++;
+    updatePlayerScore();
     console.log(obj.correct_answer);
     showResultScreen(passScreen);
     nextButtonPass.addEventListener("click", nextQuestion);
@@ -168,77 +173,3 @@ function nextQuestion() {
 }
 
 fetchData();
-// //Grab correct answer from fetched data
-// let correctAnswerFromFetch;
-
-// //Generate input attributes
-// function addAttributesToInput(input, argument) {
-//   input.setAttribute("type", "radio");
-//   input.setAttribute("name", "answer");
-//   input.setAttribute("id", argument);
-//   input.setAttribute("value", argument);
-// }
-
-// fetch(url)
-//   .then((response) => {
-//     return response.json();
-//   })
-//   .then((data) => {
-//     //Pick first question
-//     let question = data.results[0].question;
-//     //Render question on a fail screen
-//     failScreenQuestion.innerHTML = "Question: " + question;
-//     let p = document.createElement("p");
-//     p.innerHTML = question;
-//     questionContainer.appendChild(p);
-//     //Assign correct answer to a variable
-//     let correctAnswer = data.results[0].correct_answer;
-//     //Display correct answer on the fail screen
-//     failScreenAnswer.innerHTML = "Correct answer: " + correctAnswer;
-//     //Assign correct answer value to variable outside of the scope
-//     correctAnswerFromFetch = correctAnswer;
-//     //Create input and label for correct answer
-//     let input = document.createElement("input");
-//     addAttributesToInput(input, correctAnswer);
-//     let label = document.createElement("label");
-//     label.innerHTML = correctAnswer;
-//     label.prepend(input);
-//     quizContainer.appendChild(label);
-//     //Defining incorrect answers
-//     let incorrectAnswers = data.results[0].incorrect_answers;
-//     //Mapping incorrect answers
-//     incorrectAnswers.map((item) => {
-//       //Create input and label for incorrect answer
-//       let input = document.createElement("input");
-//       addAttributesToInput(input, item);
-//       let label = document.createElement("label");
-//       label.innerHTML = item;
-//       label.prepend(input);
-//       quizContainer.appendChild(label);
-//     });
-//   });
-
-// //Dynamically show result screen based on screen type
-// function showResultScreen(screenType) {
-//   screenType.classList.remove("hide");
-//   screenType.classList.add("show");
-//   quizForm.classList.add("hide");
-//   quizForm.classList.remove("show");
-//   quizForm.classList.remove("quiz-form");
-// }
-
-// //Determine correct answer
-// function determineCorrectAnswer(event) {
-//   event.preventDefault();
-//   const selectedAnswer = document.querySelector(
-//     'input[name="answer"]:checked'
-//   );
-//   // console.log(selectedAnswer.value);
-//   if (selectedAnswer.value === correctAnswerFromFetch) {
-//     showResultScreen(passScreen);
-//   } else {
-//     showResultScreen(failScreen);
-//   }
-// }
-
-// quizForm.addEventListener("submit", determineCorrectAnswer);
